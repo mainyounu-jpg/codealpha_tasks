@@ -1,1 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Younus — Gallery</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/..." rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+<!-- HEADER -->
+<header>
+  <div class="logo">YOU<span>N</span>US</div>
+  <div class="header-actions">
+    <button class="btn" id="selectionToggle">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+      Select
+    </button>
+    <button class="btn btn-primary" id="openUpload">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/></svg>
+      Upload
+    </button>
+  </div>
+</header>
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+  <div class="sidebar-section">
+    <div class="sidebar-label">Library</div>
+    <div class="sidebar-item active" data-filter="all">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      All Photos
+      <span class="sidebar-count" id="countAll">0</span>
+    </div>
+    <div class="sidebar-item" data-filter="favorites">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      Favorites
+      <span class="sidebar-count" id="countFav">0</span>
+    </div>
+    <div class="sidebar-item" data-filter="recent">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Recent
+    </div>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-label">Categories</div>
+    <div class="sidebar-item" data-filter="nature">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 8C8 10 5.9 16.17 3.82 19.82 3.82 19.82 8 22 12 17c0 0 1-1 1-2"/><path d="M2 2s4 4 4 8c0 3-2 6-2 6"/></svg>
+      Nature
+    </div>
+    <div class="sidebar-item" data-filter="architecture">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      Architecture
+    </div>
+    <div class="sidebar-item" data-filter="portrait">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      Portrait
+    </div>
+    <div class="sidebar-item" data-filter="abstract">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+      Abstract
+    </div>
+    <div class="sidebar-item" data-filter="urban">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="22" x2="12" y2="11"/><path d="M7 22V7l5-5 5 5v15"/><path d="M3 22V13l4-4"/><path d="M21 22V13l-4-4"/></svg>
+      Urban
+    </div>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-label">Smart Albums</div>
+    <div class="sidebar-item" data-filter="new">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      New Arrivals
+    </div>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main>
+  <div class="toolbar">
+    <div class="toolbar-left">
+      <div class="search-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="searchInput" placeholder="Search by title, tag, category...">
+      </div>
+      <div class="filter-tags" id="filterTags">
+        <button class="tag active" data-tag="all">All</button>
+        <button class="tag" data-tag="nature">Nature</button>
+        <button class="tag" data-tag="architecture">Architecture</button>
+        <button class="tag" data-tag="portrait">Portrait</button>
+        <button class="tag" data-tag="abstract">Abstract</button>
+        <button class="tag" data-tag="urban">Urban</button>
+      </div>
+    </div>
+    <div class="toolbar-right">
+      <select class="sort-select" id="sortSelect">
+        <option value="default">Default Order</option>
+        <option value="title">Title A–Z</option>
+        <option value="title-desc">Title Z–A</option>
+        <option value="newest">Newest First</option>
+        <option value="likes">Most Liked</option>
+        <option value="views">Most Viewed</option>
+      </select>
+      <div class="view-toggle">
+        <button class="view-btn active" data-view="grid" title="Grid">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        </button>
+        <button class="view-btn" data-view="masonry" title="Masonry">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="10"/><rect x="14" y="3" width="7" height="6"/><rect x="14" y="13" width="7" height="8"/><rect x="3" y="17" width="7" height="4"/></svg>
+        </button>
+        <button class="view-btn" data-view="list" title="List">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="gallery-area">
+    <div class="gallery-info">
+      <div class="gallery-count"><span id="visibleCount">0</span> photos</div>
+    </div>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </div>
+</main>
+
+<!-- SELECTION BAR -->
+<div class="selection-bar" id="selectionBar">
+  <div class="selection-count"><span id="selectedCount">0</span> selected</div>
+  <button class="btn" id="selectAll">Select All</button>
+  <button class="btn" id="favoriteSelected">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+    Favorite
+  </button>
+  <button class="btn" id="downloadSelected">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    Download
+  </button>
+  <button class="btn" style="color:var(--danger);border-color:var(--danger)" id="deleteSelected">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+    Delete
+  </button>
+  <button class="btn" id="cancelSelection">Cancel</button>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-bg" id="lightboxBg"></div>
+  <div class="lightbox-panel">
+    <div class="lightbox-img-wrap">
+      <img id="lbImg" src="" alt="">
+      <div class="lightbox-nav">
+        <button class="lb-arrow" id="lbPrev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg></button>
+        <button class="lb-arrow" id="lbNext"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button>
+      </div>
+      <button class="lb-close" id="lbClose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    </div>
+    <div class="lightbox-info">
+      <div>
+        <div class="lb-title" id="lbTitle"></div>
+        <div class="lb-author" id="lbAuthor"></div>
+      </div>
+      <div>
+        <div class="lb-section-label">Details</div>
+        <div class="lb-stat-grid">
+          <div class="lb-stat"><div class="lb-stat-val" id="lbLikes">0</div><div class="lb-stat-key">Likes</div></div>
+          <div class="lb-stat"><div class="lb-stat-val" id="lbViews">0</div><div class="lb-stat-key">Views</div></div>
+          <div class="lb-stat"><div class="lb-stat-val" id="lbCategory"></div><div class="lb-stat-key">Category</div></div>
+          <div class="lb-stat"><div class="lb-stat-val" id="lbDate"></div><div class="lb-stat-key">Added</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="lb-section-label">Tags</div>
+        <div class="lb-tags" id="lbTags"></div>
+      </div>
+      <div class="lb-actions">
+        <button class="btn btn-primary" id="lbDownload">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </button>
+        <button class="btn" id="lbFavorite">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          Add to Favorites
+        </button>
+        <button class="btn" id="lbShare">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+          Share
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- UPLOAD MODAL -->
+<div class="modal-overlay" id="uploadModal">
+  <div class="modal">
+    <div class="modal-title">Upload Photos</div>
+    <div class="modal-sub">Add new images to your gallery</div>
+    <div class="drop-zone" id="dropZone">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+      <p>Drop images here or <span>browse files</span></p>
+      <p style="font-size:10px;margin-top:6px;color:var(--text-dim)">PNG, JPG, WEBP — up to 20MB each</p>
+      <input type="file" id="fileInput" multiple accept="image/*" style="display:none">
+    </div>
+    <div class="progress-bar" id="progressBar"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="modal-fields">
+      <div class="field">
+        <label>Title</label>
+        <input type="text" id="uploadTitle" placeholder="Enter image title">
+      </div>
+      <div class="field">
+        <label>Category</label>
+        <select id="uploadCategory">
+          <option value="nature">Nature</option>
+          <option value="architecture">Architecture</option>
+          <option value="portrait">Portrait</option>
+          <option value="abstract">Abstract</option>
+          <option value="urban">Urban</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Tags (comma separated)</label>
+        <input type="text" id="uploadTags" placeholder="e.g. sunset, golden hour, travel">
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn" id="cancelUpload">Cancel</button>
+      <button class="btn btn-primary" id="confirmUpload">Add to Gallery</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOASTS -->
+<div class="toast-container" id="toastContainer"></div>
+
+</body>
+<script src="script.js"></script>
+</html>
