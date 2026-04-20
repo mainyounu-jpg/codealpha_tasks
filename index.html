@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pro Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <button onclick="toggleTheme()">🌙</button>
+    <button onclick="toggleScientific()">🧠</button>
+  </div>
+
+  <!-- CALCULATOR -->
+  <div class="calculator">
+    <input type="text" id="display" disabled>
+
+    <!-- SCIENTIFIC -->
+    <div id="scientific" class="scientific hidden">
+      <button onclick="scientificFunc('Math.sin(')">sin</button>
+      <button onclick="scientificFunc('Math.cos(')">cos</button>
+      <button onclick="scientificFunc('Math.tan(')">tan</button>
+      <button onclick="scientificFunc('Math.log(')">log</button>
+      <button onclick="scientificFunc('Math.sqrt(')">√</button>
+      <button onclick="append('**')">^</button>
+      <button onclick="append('(')"></button>
+      <button onclick="append(')')"></button>
+    </div>
+
+    <!-- BUTTONS -->
+    <div class="buttons">
+      <button onclick="clearDisplay()">AC</button>
+      <button onclick="deleteLast()">DEL</button>
+      <button onclick="append('%')">%</button>
+      <button onclick="append('/')">÷</button>
+
+      <button onclick="append('7')">7</button>
+      <button onclick="append('8')">8</button>
+      <button onclick="append('9')">9</button>
+      <button onclick="append('*')">×</button>
+
+      <button onclick="append('4')">4</button>
+      <button onclick="append('5')">5</button>
+      <button onclick="append('6')">6</button>
+      <button onclick="append('-')">−</button>
+
+      <button onclick="append('1')">1</button>
+      <button onclick="append('2')">2</button>
+      <button onclick="append('3')">3</button>
+      <button onclick="append('+')">+</button>
+
+      <button class="zero" onclick="append('0')">0</button>
+      <button onclick="append('.')">.</button>
+      <button class="equal" onclick="calculate()">=</button>
+    </div>
+  </div>
+
+  <!-- HISTORY PANEL -->
+  <div class="history" id="historyPanel">
+    <h3>History</h3>
+    <ul id="historyList"></ul>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
