@@ -1,0 +1,260 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:'Times New Roman', Times, serif;
+  
+}
+
+/* BODY */
+body {
+  background: linear-gradient(135deg, #1e1e2f, #2a5298);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: #fff;
+  padding: 10px;
+}
+
+/* PLAYER CONTAINER */
+.player {
+  width: clamp(280px, 90%, 500px);
+  padding: clamp(15px, 3vw, 25px);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+  transition: 0.4s ease;
+  animation: fadeIn 1s ease;
+}
+
+/* HOVER (only for non-touch devices) */
+@media (hover: hover) {
+  .player:hover {
+    transform: translateY(-5px) scale(1.02);
+  }
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+/* HEADINGS */
+h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #7a7a7a;
+  letter-spacing: 1px;
+  font-size: clamp(18px, 3vw, 24px);
+}
+
+h3 {
+  margin-top: 10px;
+  font-size: clamp(14px, 2vw, 18px);
+}
+
+p {
+  font-size: clamp(12px, 1.8vw, 14px);
+  color: #ccc;
+}
+
+/* INPUT */
+input[type="file"] {
+  margin: 10px 0;
+  width: 100%;
+  cursor: pointer;
+  color: #ccc;
+}
+
+/* SEARCH */
+#search {
+  width: 100%;
+  padding: 10px;
+  border-radius: 30px;
+  border:#1e1e2f;
+  margin-bottom: 10px;
+  background: rgba(255,255,255,0.1);
+  color: rgb(255, 255, 255);
+  outline: none;
+}
+
+/* CONTROLS */
+.controls {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: clamp(6px, 2vw, 12px);
+  margin: 15px 0;
+}
+
+.controls button {
+  padding: clamp(8px, 2vw, 12px) clamp(10px, 2vw, 16px);
+  border-radius: 50px;
+  border: none;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  backdrop-filter: blur(10px);
+  font-size: clamp(12px, 2vw, 14px);
+}
+
+/* TOUCH FRIENDLY */
+.controls button:active {
+  transform: scale(0.95);
+}
+
+@media (hover: hover) {
+  .controls button:hover {
+    background: #1d56b9;
+    transform: scale(1.1);
+    box-shadow: 0 0 10px #1d56b9;
+  }
+}
+
+/* PROGRESS BAR */
+#progress {
+  width: 100%;
+  margin: 10px 0;
+  accent-color: #1db954;
+  cursor: pointer;
+}
+
+/* TIME */
+.time {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: clamp(10px, 1.5vw, 12px);
+  color: #aaa;
+}
+
+/* VOLUME */
+#volume {
+  width: 100%;
+  margin-top: 8px;
+  accent-color: #1db954;
+}
+
+/* PLAYLIST SECTIONS */
+#playlist, #recent, #playlists {
+  margin-top: 10px;
+  max-height: 150px;
+  overflow-y: auto;
+  border-radius: 10px;
+}
+
+/* SCROLLBAR */
+#playlist::-webkit-scrollbar,
+#recent::-webkit-scrollbar,
+#playlists::-webkit-scrollbar {
+  width: 5px;
+}
+
+#playlist::-webkit-scrollbar-thumb,
+#recent::-webkit-scrollbar-thumb,
+#playlists::-webkit-scrollbar-thumb {
+  background: #1db954;
+  border-radius: 10px;
+}
+
+/* SONG ITEMS */
+#playlist div,
+#recent div,
+#playlists div {
+  padding: 10px;
+  border-radius: 8px;
+  transition: 0.3s;
+  cursor: pointer;
+  font-size: clamp(12px, 2vw, 14px);
+}
+
+/* HOVER */
+@media (hover: hover) {
+  #playlist div:hover,
+  #recent div:hover,
+  #playlists div:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateX(6px);
+  }
+}
+
+/* ACTIVE SONG */
+.active-song {
+  background: #1db954 !important;
+  color: black;
+}
+
+/* FAVORITE */
+.favorite {
+  color: #1db954;
+}
+
+/* WAVE CANVAS */
+canvas {
+  width: 100%;
+  height: 60px;
+  background: black;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
+/* PLAYLIST INPUT */
+#playlistName {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  margin-top: 5px;
+}
+
+/* ------------------- */
+/*  SMALL MOBILE */
+/* ------------------- */
+@media (max-width: 480px) {
+  .player {
+    width: 100%;
+    border-radius: 15px;
+  }
+
+  .controls {
+    gap: 6px;
+  }
+
+  .controls button {
+    flex: 1 1 30%;
+  }
+}
+
+/* ------------------- */
+/*  TABLET */
+/* ------------------- */
+@media (min-width: 481px) and (max-width: 768px) {
+  .player {
+    width: 85%;
+  }
+}
+
+/* ------------------- */
+/*  LAPTOP */
+/* ------------------- */
+@media (min-width: 769px) and (max-width: 1200px) {
+  .player {
+    width: 450px;
+  }
+}
+
+/* ------------------- */
+/*  DESKTOP */
+/* ------------------- */
+@media (min-width: 1201px) {
+  .player {
+    width: 500px;
+  }
+}

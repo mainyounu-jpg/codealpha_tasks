@@ -1,1 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pro Music Player</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="player">
+
+    <!-- HEADER -->
+    <header>
+      <h2>Younus</h2>
+      <input type="file" id="fileInput" multiple accept="audio/*">
+      <h1><input type="text" id="search" placeholder="🔍 Search songs..."></h1>
+    </header>
+
+    <!-- NOW PLAYING -->
+    <section class="now-playing">
+      <h2 id="title">Song Name</h2>
+      <p id="artist">Artist Name</p>
+    </section>
+
+    <!-- AUDIO -->
+    <audio id="audio"></audio>
+
+    <!-- WAVE -->
+    <canvas id="wave"></canvas>
+
+    <!-- PROGRESS -->
+    <section>
+      <input type="range" id="progress" value="0">
+      <div class="time">
+        <span id="currentTime">0:00</span>
+        <span id="remainingTime">-0:00</span>
+      </div>
+    </section>
+
+    <!-- CONTROLS -->
+    <section class="controls">
+      <button onclick="prevSong()">⏮</button>
+      <button id="playBtn" onclick="playPause()">▶️</button>
+      <button onclick="nextSong()">⏭</button>
+    </section>
+
+    <!-- EXTRA CONTROLS -->
+    <section>
+      <input type="range" id="volume" min="0" max="1" step="0.01" value="1">
+
+      <div class="controls">
+        <button id="shuffleBtn" onclick="toggleShuffle()">🔀</button>
+        <button id="repeatBtn" onclick="toggleRepeat()">🔁</button>
+        <button onclick="toggleFavorite()">❤️</button>
+      </div>
+    </section>
+
+    <!-- PLAYLIST CREATION -->
+    <section>
+      <h3>Playlists</h3>
+      <input id="playlistName" placeholder="New playlist name">
+      <button onclick="createPlaylist()">➕ Add</button>
+      <div id="playlists"></div>
+    </section>
+
+    <!-- RECENT -->
+    <section>
+      <h3>Recently Played</h3>
+      <div id="recent"></div>
+    </section>
+
+    <!-- SONG LIST -->
+    <section>
+      <h3>🎵 Songs</h3>
+      <div id="playlist"></div>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
